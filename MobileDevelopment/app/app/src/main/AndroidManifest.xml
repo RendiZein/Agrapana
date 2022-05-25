@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgrapanaApp">
         <activity
+            android:name=".view.authentication.login.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.main.MainActivity"
             android:exported="true">
             <intent-filter>
