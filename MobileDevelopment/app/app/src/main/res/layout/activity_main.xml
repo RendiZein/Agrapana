@@ -51,5 +51,16 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <Button
+        android:id="@+id/btn_camera"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_height="wrap_content"
+        android:text="To camera act"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/nunito_medium" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

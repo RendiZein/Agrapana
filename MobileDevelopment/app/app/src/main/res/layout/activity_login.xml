@@ -33,7 +33,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_email"
-            android:fontFamily="@font/nunito_bold"
+            android:fontFamily="@font/nunito_medium"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -54,10 +54,25 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_pass"
-            android:fontFamily="@font/nunito_bold"
+            android:fontFamily="@font/nunito_medium"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/textButton"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_height="wrap_content"
+        android:text="LOGIN"
+        app:layout_constraintTop_toBottomOf="@id/layout_edt_pass"
+        app:layout_constraintStart_toStartOf="@id/layout_edt_pass"
+        app:layout_constraintEnd_toEndOf="@id/layout_edt_pass"
+        android:fontFamily="@font/nunito_medium"
+        />
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
