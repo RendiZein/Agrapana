@@ -17,8 +17,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        val i = Intent(this@MainActivity, LoginActivity::class.java)
-//        startActivity(i)
+        val i = Intent(this@MainActivity, LoginActivity::class.java)
+        startActivity(i)
         supportActionBar?.hide()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
