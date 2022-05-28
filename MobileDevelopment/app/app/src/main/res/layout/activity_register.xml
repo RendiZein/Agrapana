@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.authentication.register.RegisterActivity">
+
+    <TextView
+        android:id="@+id/tv_hi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="Let's get \nregisterd first!"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/layout_edt_email"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_edt_name"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:hint="Name"
+        app:startIconDrawable="@drawable/ic_person"
+        app:startIconContentDescription="content_description_start_icon"
+        app:layout_constraintTop_toBottomOf="@id/tv_hi"
+        style="?attr/textInputOutlinedStyle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_name"
+            android:fontFamily="@font/nunito_medium"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_edt_email"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="Email"
+        app:startIconDrawable="@drawable/ic_email"
+        app:startIconContentDescription="content_description_start_icon"
+        app:layout_constraintTop_toBottomOf="@id/layout_edt_name"
+        style="?attr/textInputOutlinedStyle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_email"
+            android:fontFamily="@font/nunito_medium"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_edt_pass"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        style="?attr/textInputOutlinedStyle"
+        android:hint="Password"
+        app:startIconDrawable="@drawable/ic_password"
+        app:startIconContentDescription="content_description_start_icon"
+        app:layout_constraintTop_toBottomOf="@id/layout_edt_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_pass"
+            android:fontFamily="@font/nunito_medium"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_height="wrap_content"
+        android:text="REGISTER"
+        app:layout_constraintTop_toBottomOf="@id/layout_edt_pass"
+        app:layout_constraintStart_toStartOf="@id/layout_edt_pass"
+        app:layout_constraintEnd_toEndOf="@id/layout_edt_pass"
+        android:fontFamily="@font/nunito_medium" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

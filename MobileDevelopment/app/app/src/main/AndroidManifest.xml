@@ -28,6 +28,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgrapanaApp">
         <activity
+            android:name=".view.authentication.register.RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.result.ResultActivity"
             android:exported="false" />
         <activity
