@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/layout/activity_register.xml" value="0.1308876811594203" />
+        <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/layout/activity_result.xml" value="0.22" />
         <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_capture.xml" value="0.144" />
         <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_place_holder.xml" value="0.144" />
         <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_switch_camera.xml" value="0.144" />

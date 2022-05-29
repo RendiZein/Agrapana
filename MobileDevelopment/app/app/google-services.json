@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "143583931592",
+    "project_id": "agrapana-app",
+    "storage_bucket": "agrapana-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143583931592:android:8056883272b808be3ec9fd",
+        "android_client_info": {
+          "package_name": "com.capstone.agrapanaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "143583931592-r0jtepmqsk07ule6085k1dhmm87iaque.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.capstone.agrapanaapp",
+            "certificate_hash": "7ca8b584f887ce048d437443350725f5c4fcd6ed"
+          }
+        },
+        {
+          "client_id": "143583931592-m0ruu0tk7178su7v1r3tasdvkdhbpqae.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTPT9h4_h2R7yKqE1MLpAEaE-ixwcFKCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "143583931592-m0ruu0tk7178su7v1r3tasdvkdhbpqae.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
