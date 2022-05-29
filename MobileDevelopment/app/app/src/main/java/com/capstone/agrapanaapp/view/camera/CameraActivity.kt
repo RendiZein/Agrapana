@@ -15,7 +15,8 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.capstone.agrapanaapp.databinding.ActivityCameraBinding
 import com.capstone.agrapanaapp.view.helper.createFile
-import com.capstone.agrapanaapp.view.result.ResultActivity
+import com.capstone.agrapanaapp.view.main.MainActivity
+import java.io.File
 
 
 class CameraActivity : AppCompatActivity() {
@@ -71,7 +72,7 @@ class CameraActivity : AppCompatActivity() {
                         "isBackCamera",
                         cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA
                     )
-                    setResult(ResultActivity.CAMERA_RESULT, intent)
+                    setResult(MainActivity.CAMERA_RESULT, intent)
                     finish()
                 }
             }

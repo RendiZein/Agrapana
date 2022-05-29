@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         com.capstone.agrapanaapp.view.helper.createTempFile(application).also {
             val photoURI: Uri = FileProvider.getUriForFile(
                 this@MainActivity,
-                "com.capstone.agrapanaapp.view.result",
+                "com.capstone.agrapanaapp.view.main",
                 it
             )
             currentPhotoPath = it.absolutePath

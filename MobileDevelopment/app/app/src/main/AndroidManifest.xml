@@ -51,7 +51,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.capstone.agrapanaapp.view.camera"
+            android:authorities="com.capstone.agrapanaapp.view.main"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
