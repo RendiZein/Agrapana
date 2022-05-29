@@ -8,9 +8,7 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.CancellationSignal
 import android.provider.MediaStore
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
@@ -18,8 +16,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.capstone.agrapanaapp.R
 import com.capstone.agrapanaapp.databinding.ActivityMainBinding
-import com.capstone.agrapanaapp.view.authentication.login.LoginActivity
-import com.capstone.agrapanaapp.view.camera.CameraActivity
 import com.capstone.agrapanaapp.view.helper.rotateBitmap
 import com.capstone.agrapanaapp.view.helper.uriToFile
 import java.io.ByteArrayOutputStream
