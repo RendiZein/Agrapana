@@ -62,5 +62,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:fontFamily="@font/nunito_medium" />
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="1dp"
+        android:layout_marginTop="16dp"
+        tools:src="@drawable/ic_back"
+        app:layout_constraintTop_toBottomOf="@id/btn_camera"
+        app:layout_constraintStart_toStartOf="@id/btn_camera"
+        app:layout_constraintEnd_toEndOf="@id/btn_camera"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
