@@ -47,8 +47,8 @@ class MainActivity : AppCompatActivity() {
                     getString(R.string.no_permission_camera),
                     Toast.LENGTH_SHORT
                 ).show()
-                finish()
-            }
+
+            } else{startTakePhoto()}
         }
     }
 
@@ -62,15 +62,22 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (!allPermissionsGranted()) {
-            ActivityCompat.requestPermissions(
-                this,
-                REQUIRED_PERMISSIONS,
-                REQUEST_CODE_PERMISSIONS
-            )
+//        if (!allPermissionsGranted()) {
+//            ActivityCompat.requestPermissions(
+//                this,
+//                REQUIRED_PERMISSIONS,
+//                REQUEST_CODE_PERMISSIONS
+//            )
+//        }
+        binding.btnCamera.setOnClickListener {
+            if (!allPermissionsGranted()) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    REQUIRED_PERMISSIONS,
+                    REQUEST_CODE_PERMISSIONS
+                )
+            } else startTakePhoto()
         }
-
-        binding.btnCamera.setOnClickListener {startTakePhoto()}
     }
 
     private fun startTakePhoto() {
