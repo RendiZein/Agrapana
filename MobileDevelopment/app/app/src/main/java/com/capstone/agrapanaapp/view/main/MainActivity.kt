@@ -22,43 +22,13 @@ import com.capstone.agrapanaapp.view.authentication.login.LoginActivity
 import com.capstone.agrapanaapp.view.camera.CameraActivity
 import com.capstone.agrapanaapp.view.helper.rotateBitmap
 import com.capstone.agrapanaapp.view.helper.uriToFile
+import com.capstone.agrapanaapp.view.result.ResultActivity
 import java.io.ByteArrayOutputStream
 import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var currentPhotoPath: String
-    private var getFile: File? = null
-
-    companion object {
-        const val CAMERA_RESULT = 200
-
-        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
-        private const val REQUEST_CODE_PERMISSIONS = 10
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == REQUEST_CODE_PERMISSIONS) {
-            if (!allPermissionsGranted()) {
-                Toast.makeText(
-                    this,
-                    getString(R.string.no_permission_camera),
-                    Toast.LENGTH_SHORT
-                ).show()
-                finish()
-            }
-        }
-    }
-
-    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
-        ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,51 +36,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (!allPermissionsGranted()) {
-            ActivityCompat.requestPermissions(
-                this,
-                REQUIRED_PERMISSIONS,
-                REQUEST_CODE_PERMISSIONS
-            )
-        }
-
-        binding.btnCamera.setOnClickListener {startTakePhoto()}
-    }
-
-    private fun startTakePhoto() {
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        intent.resolveActivity(packageManager)
-        com.capstone.agrapanaapp.view.helper.createTempFile(application).also {
-            val photoURI: Uri = FileProvider.getUriForFile(
-                this@MainActivity,
-                "com.capstone.agrapanaapp.view.main",
-                it
-            )
-            currentPhotoPath = it.absolutePath
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-            launcherIntentCamera.launch(intent)
+        binding.btnCamera.setOnClickListener {
+            startActivity(Intent(this@MainActivity, CameraActivity::class.java))
         }
     }
 
-    private val launcherIntentCamera = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) {
-        if (it.resultCode == RESULT_OK) {
-            val myFile = File(currentPhotoPath)
-            val result = rotateBitmap(
-                BitmapFactory.decodeFile(myFile.path),
-                true
-            )
-
-            val bytes = ByteArrayOutputStream()
-            result.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
-            val path = MediaStore.Images.Media.insertImage(this@MainActivity.contentResolver, result ,"Tittle",null)
-            val uri = Uri.parse(path.toString())
-            getFile = uriToFile(uri,this)
-
-            binding.previewImageView.setImageBitmap(result)
-
-        }
-
-    }
 }

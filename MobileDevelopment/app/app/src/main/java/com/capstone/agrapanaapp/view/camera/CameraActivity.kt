@@ -1,6 +1,8 @@
 package com.capstone.agrapanaapp.view.camera
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,10 +14,12 @@ import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.capstone.agrapanaapp.databinding.ActivityCameraBinding
 import com.capstone.agrapanaapp.view.helper.createFile
 import com.capstone.agrapanaapp.view.main.MainActivity
+import com.capstone.agrapanaapp.view.result.ResultActivity
 import java.io.File
 
 
@@ -31,6 +35,13 @@ class CameraActivity : AppCompatActivity() {
 
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        if (!allPermissionsGranted()) {
+            ActivityCompat.requestPermissions(
+                this,
+                REQUIRED_PERMISSIONS,
+                REQUEST_CODE_PERMISSIONS
+            )
+        }
 
         binding.captureImage.setOnClickListener { takePhoto() }
         binding.switchCamera.setOnClickListener {
@@ -38,6 +49,7 @@ class CameraActivity : AppCompatActivity() {
             else CameraSelector.DEFAULT_BACK_CAMERA
 
             startCamera()
+
         }
 
     }
@@ -65,14 +77,25 @@ class CameraActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
+
+                    val imgPath = output.savedUri?.path
+                    if (imgPath != null){
+                       val i = Intent(this@CameraActivity, ResultActivity::class.java)
+                       i.putExtra(ResultActivity.EXTRA_PATH_IMAGE, imgPath)
+                       startActivity(i)
+
+                    } else {
+                        finish()
+                    }
                     val intent = Intent()
                     intent.putExtra("picture", photoFile)
                     intent.putExtra(
                         "isBackCamera",
                         cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA
                     )
-                    setResult(MainActivity.CAMERA_RESULT, intent)
+                    setResult(ResultActivity.CAMERA_RESULT, intent)
                     finish()
                 }
             }
@@ -124,4 +147,33 @@ class CameraActivity : AppCompatActivity() {
         }
         supportActionBar?.hide()
     }
+    //-------------------------------------------------------//
+    companion object {
+        const val CAMERA_X_RESULT = 200
+        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+        private const val REQUEST_CODE_PERMISSIONS = 10
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_CODE_PERMISSIONS) {
+            if (!allPermissionsGranted()) {
+                Toast.makeText(
+                    this,
+                    "Tidak mendapatkan permission.",
+                    Toast.LENGTH_SHORT
+                ).show()
+                finish()
+            }
+        }
+    }
+
+    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
+        ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
+    }
+
 }
