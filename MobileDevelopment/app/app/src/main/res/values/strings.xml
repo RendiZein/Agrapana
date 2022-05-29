@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Agrapana App</string>
+    <string name="image_preview">Image preview</string>
+    <string name="no_permission_camera">no camera permission</string>
 </resources>
