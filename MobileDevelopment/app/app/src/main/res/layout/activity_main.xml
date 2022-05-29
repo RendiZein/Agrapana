@@ -73,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@id/btn_camera"
         app:strokeColor="@color/black"
         app:strokeWidth="1dp"
-        tools:src="@drawable/ic_back" />
+        tools:src="@drawable/ic_place_holder" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

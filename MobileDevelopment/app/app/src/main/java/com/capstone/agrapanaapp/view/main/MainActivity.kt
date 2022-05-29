@@ -40,5 +40,4 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, CameraActivity::class.java))
         }
     }
-
 }
