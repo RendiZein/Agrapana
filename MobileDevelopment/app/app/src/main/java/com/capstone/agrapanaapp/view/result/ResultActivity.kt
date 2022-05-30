@@ -43,7 +43,7 @@ class ResultActivity : AppCompatActivity() {
             BitmapFactory.decodeFile(currentPhotoPath),
             true
         )
-        binding.previewImageView.setImageBitmap(result)
+        binding.resultImageView.setImageBitmap(result)
 
     }
 
