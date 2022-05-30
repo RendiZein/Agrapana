@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".view.authentication.register.RegisterActivity">
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="429dp"
+        android:layout_height="306dp"
+        android:layout_marginTop="-56dp"
+        android:src="@drawable/ellipse_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_hi"
         android:layout_width="wrap_content"
@@ -13,6 +22,7 @@
         android:layout_marginTop="96dp"
         android:fontFamily="@font/nunito_bold"
         android:text="Let's get \nregisterd first!"
+        android:textColor="@color/black"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/layout_edt_email"
@@ -20,65 +30,68 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_edt_name"
+        style="?attr/textInputOutlinedStyle"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="96dp"
         android:hint="Name"
-        app:startIconDrawable="@drawable/ic_person"
-        app:startIconContentDescription="content_description_start_icon"
-        app:layout_constraintTop_toBottomOf="@id/tv_hi"
-        style="?attr/textInputOutlinedStyle"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/tv_hi"
+        app:startIconContentDescription="content_description_start_icon"
+        app:startIconDrawable="@drawable/ic_person">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_name"
-            android:fontFamily="@font/nunito_medium"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:fontFamily="@font/nunito_medium" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_edt_email"
+        style="?attr/textInputOutlinedStyle"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:hint="Email"
-        app:startIconDrawable="@drawable/ic_email"
-        app:startIconContentDescription="content_description_start_icon"
-        app:layout_constraintTop_toBottomOf="@id/layout_edt_name"
-        style="?attr/textInputOutlinedStyle"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/layout_edt_name"
+        app:startIconContentDescription="content_description_start_icon"
+        app:startIconDrawable="@drawable/ic_email">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_email"
-            android:fontFamily="@font/nunito_medium"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:fontFamily="@font/nunito_medium" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_edt_pass"
+        style="?attr/textInputOutlinedStyle"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        style="?attr/textInputOutlinedStyle"
         android:hint="Password"
-        app:startIconDrawable="@drawable/ic_password"
-        app:startIconContentDescription="content_description_start_icon"
-        app:layout_constraintTop_toBottomOf="@id/layout_edt_email"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/layout_edt_email"
+        app:startIconContentDescription="content_description_start_icon"
+        app:startIconDrawable="@drawable/ic_password">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_pass"
-            android:fontFamily="@font/nunito_medium"
-            android:inputType="textPassword"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:fontFamily="@font/nunito_medium"
+            android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,13 +99,36 @@
     <Button
         android:id="@+id/btn_register"
         android:layout_width="wrap_content"
-        android:layout_marginTop="32dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/nunito_medium"
         android:text="REGISTER"
-        app:layout_constraintTop_toBottomOf="@id/layout_edt_pass"
-        app:layout_constraintStart_toStartOf="@id/layout_edt_pass"
         app:layout_constraintEnd_toEndOf="@id/layout_edt_pass"
-        android:fontFamily="@font/nunito_medium" />
+        app:layout_constraintStart_toStartOf="@id/layout_edt_pass"
+        app:layout_constraintTop_toBottomOf="@id/layout_edt_pass" />
+
+    <TextView
+        android:id="@+id/tv_already"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have account?"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toStartOf="@id/btn_login"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/btn_register" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="login here"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@id/tv_already"
+        app:layout_constraintStart_toEndOf="@id/tv_already"
+        app:layout_constraintTop_toTopOf="@id/tv_already" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
