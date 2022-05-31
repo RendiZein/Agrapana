@@ -82,6 +82,7 @@ class CameraActivity : AppCompatActivity() {
                     if (imgPath != null){
                        val i = Intent(this@CameraActivity, ResultActivity::class.java)
                        i.putExtra(ResultActivity.EXTRA_PATH_IMAGE, imgPath)
+                       i.putExtra(ResultActivity.EXTRA_URI, output.savedUri.toString())
                        startActivity(i)
 
                     } else {

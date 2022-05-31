@@ -44,12 +44,14 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.ByteArrayOutputStream
 import java.io.File
+//import java.util.prefs.Preferences
 
 class ResultActivity : AppCompatActivity() {
 
     companion object {
         const val CAMERA_RESULT = 200
         const val EXTRA_PATH_IMAGE = "extra_path_IMAGE"
+        const val EXTRA_URI = "extra_uri"
     }
 
     private lateinit var currentPhotoPath: String
@@ -64,18 +66,21 @@ class ResultActivity : AppCompatActivity() {
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
         currentPhotoPath = intent.getStringExtra(EXTRA_PATH_IMAGE).toString()
+
         val result = rotateBitmap(
             BitmapFactory.decodeFile(currentPhotoPath),
             true
         )
+
         val path = MediaStore.Images.Media.insertImage(this@ResultActivity.contentResolver, result,"Tittle",null)
-        val uri = Uri.parse(path.toString())
+//        val uri = Uri.parse(path.toString())
+        val uriString = intent.getStringExtra("extra_uri").toString()
+        val uri = Uri.parse(uriString)
         getFile = uriToFile(uri,this)
         binding.resultImageView.setImageBitmap(result)
 
         setupViewModel()
         binding.uploadButton.setOnClickListener{uploadImage()}
-
     }
 
     private fun uploadImage() {
