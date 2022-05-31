@@ -2,4 +2,7 @@
     <string name="app_name">Agrapana App</string>
     <string name="image_preview">Image preview</string>
     <string name="no_permission_camera">no camera permission</string>
+    <string name="upload">Upload</string>
+    <string name="retrofit_failure">Retrofit failure</string>
+    <string name="please_insert_image">No image</string>
 </resources>
