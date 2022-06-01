@@ -71,11 +71,12 @@ class ResultActivity : AppCompatActivity() {
             BitmapFactory.decodeFile(currentPhotoPath),
             true
         )
-
-        val path = MediaStore.Images.Media.insertImage(this@ResultActivity.contentResolver, result,"Tittle",null)
-//        val uri = Uri.parse(path.toString())
-        val uriString = intent.getStringExtra("extra_uri").toString()
-        val uri = Uri.parse(uriString)
+//        val bytes = ByteArrayOutputStream()
+//        result.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
+        val path = MediaStore.Images.Media.insertImage(this@ResultActivity.contentResolver, result,"Title",null).toString()
+        val uri = Uri.parse(path)
+//        val uriString = intent.getStringExtra("extra_uri").toString()
+//        val uri = Uri.parse(uriString)
         getFile = uriToFile(uri,this)
         binding.resultImageView.setImageBitmap(result)
 

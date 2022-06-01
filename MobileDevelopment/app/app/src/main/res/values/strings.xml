@@ -5,4 +5,6 @@
     <string name="upload">Upload</string>
     <string name="retrofit_failure">Retrofit failure</string>
     <string name="please_insert_image">No image</string>
+    <string name="result">Result</string>
+    <string name="ripeness_level_withDoubleDots">Ripeness level:</string>
 </resources>
