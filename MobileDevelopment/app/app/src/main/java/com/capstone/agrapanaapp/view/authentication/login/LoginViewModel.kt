@@ -57,7 +57,7 @@ class LoginViewModel(private val pref: UserPreference) : ViewModel() {
 //        })
 //    }
 
-    fun login(user: UserModel) {
+    fun loginData(user: UserModel) {
         viewModelScope.launch {
             pref.login(user)
         }

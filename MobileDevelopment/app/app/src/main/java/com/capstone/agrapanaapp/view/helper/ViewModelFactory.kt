@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.capstone.agrapanaapp.model.UserPreference
+import com.capstone.agrapanaapp.view.authentication.login.LoginViewModel
 import com.capstone.agrapanaapp.view.result.ResultViewModel
 
 class ViewModelFactory(private val pref: UserPreference,
@@ -18,6 +19,9 @@ class ViewModelFactory(private val pref: UserPreference,
         return when {
             modelClass.isAssignableFrom(ResultViewModel::class.java) -> {
                 ResultViewModel(pref) as T
+            }
+            modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
+                LoginViewModel(pref) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
