@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnCamera.setOnClickListener {
-            startActivity(Intent(this@MainActivity, CameraActivity::class.java))
+            startActivity(Intent(this@MainActivity, LoginActivity::class.java))
         }
     }
 }

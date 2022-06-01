@@ -6,14 +6,106 @@
     android:layout_height="match_parent"
     tools:context=".view.authentication.register.RegisterActivity">
 
+    <!-- decoration -->
+
     <com.google.android.material.imageview.ShapeableImageView
-        android:layout_width="429dp"
-        android:layout_height="306dp"
-        android:layout_marginTop="-56dp"
-        android:src="@drawable/ellipse_up"
+        android:layout_width="396dp"
+        android:layout_height="291dp"
+        android:layout_marginBottom="-100dp"
+        android:src="@drawable/ic_bottom_decor"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_cross_x3"
+        app:layout_constraintStart_toStartOf="@id/tv_hi"
+        app:layout_constraintBottom_toTopOf="@id/tv_hi"
+        android:layout_marginBottom="25dp"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_cross_x3"
+        android:layout_marginStart="25dp"
+        app:layout_constraintStart_toStartOf="@id/tv_hi"
+        app:layout_constraintBottom_toTopOf="@id/tv_hi"
+        android:layout_marginBottom="25dp"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_cross"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_cross_x3"
+        android:layout_marginStart="50dp"
+        app:layout_constraintStart_toStartOf="@id/tv_hi"
+        app:layout_constraintBottom_toTopOf="@id/tv_hi"
+        android:layout_marginBottom="25dp"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_disk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_disk"
+        app:layout_constraintTop_toTopOf="@id/iv_cross"
+        app:layout_constraintBottom_toBottomOf="@id/iv_cross"
+        android:layout_marginStart="75dp"
+        app:layout_constraintStart_toEndOf="@id/tv_hi"/>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_circle_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_circle_group"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@id/iv_disk"
+        app:layout_constraintStart_toStartOf="@id/iv_disk"
+        app:layout_constraintEnd_toEndOf="@id/iv_disk"/>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toTopOf="@id/iv_circle_group"
+        app:layout_constraintStart_toStartOf="@id/iv_circle_group"
+        android:src="@drawable/ic_circle_2_1"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/iv_circle_group"
+        app:layout_constraintEnd_toEndOf="@id/iv_circle_group"
+        android:src="@drawable/ic_circle_5_2"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="393dp"
+        android:layout_height="405dp"
+        android:src="@drawable/ic_three_line"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_hi"
+        android:layout_marginTop="-225dp"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_triangle_solid"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintStart_toStartOf="@id/triangle_line"
+        app:layout_constraintTop_toTopOf="@id/triangle_line" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/triangle_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/ic_triangle_line"
+        app:layout_constraintStart_toStartOf="@id/tv_hi"
+        app:layout_constraintTop_toBottomOf="@id/tv_hi" />
+
+    <!-- end decoration -->
 
     <TextView
         android:id="@+id/tv_hi"
@@ -33,7 +125,7 @@
         style="?attr/textInputOutlinedStyle"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="195dp"
         android:hint="Name"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +147,7 @@
         style="?attr/textInputOutlinedStyle"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:hint="Email"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +169,7 @@
         style="?attr/textInputOutlinedStyle"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:hint="Password"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,7 +192,7 @@
         android:id="@+id/btn_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/nunito_medium"
         android:text="REGISTER"
         app:layout_constraintEnd_toEndOf="@id/layout_edt_pass"
@@ -113,7 +205,7 @@
         android:layout_height="wrap_content"
         android:text="Already have account?"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toStartOf="@id/btn_login"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintTop_toBottomOf="@id/btn_register" />
