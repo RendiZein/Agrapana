@@ -65,6 +65,8 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
+
         currentPhotoPath = intent.getStringExtra(EXTRA_PATH_IMAGE).toString()
 
         val result = rotateBitmap(
