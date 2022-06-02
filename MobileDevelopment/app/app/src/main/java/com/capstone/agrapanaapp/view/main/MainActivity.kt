@@ -35,8 +35,14 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.bottomNavigationView.background = null
+        binding.bottomNavigationView.menu.getItem(1).isEnabled = false
 
-        binding.btnCamera.setOnClickListener {
+        binding.fab.setOnClickListener {
+            startActivity(Intent(this@MainActivity, CameraActivity::class.java))
+        }
+
+        binding.testLogin.setOnClickListener {
             startActivity(Intent(this@MainActivity, LoginActivity::class.java))
         }
     }
