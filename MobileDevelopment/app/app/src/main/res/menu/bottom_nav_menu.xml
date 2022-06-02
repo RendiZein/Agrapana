@@ -8,7 +8,6 @@
     <item android:id="@+id/placeholder"
         android:title="" />
 
-
     <item android:id="@+id/miSettings"
         android:title="History"
         android:icon="@drawable/ic_baseline_history" />

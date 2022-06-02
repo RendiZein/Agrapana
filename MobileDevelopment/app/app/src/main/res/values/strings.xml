@@ -10,6 +10,6 @@
     <string name="input_email">Please input valid email adress</string>
     <string name="input_password">please input password</string>
     <string name="password_number_alert">password must be more than 6 characters</string>
-    <string name="email_pattern_alert">Email must be valid email adrdess</string>
+    <string name="email_pattern_alert">Email must be valid email address</string>
     <string name="input_name">Please input your name</string>
 </resources>

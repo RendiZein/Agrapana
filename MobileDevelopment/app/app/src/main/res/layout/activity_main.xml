@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:fabCradleMargin="20dp"
+
         app:fabCradleVerticalOffset="10dp"
         app:fabCradleRoundedCornerRadius="20dp"
         android:layout_gravity="bottom">
@@ -30,7 +31,8 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_twotone_camera"
+        android:src="@drawable/ic_scan"
+        app:tint="@null"
         app:layout_anchor="@id/bottomAppBar" />
 
     <Button

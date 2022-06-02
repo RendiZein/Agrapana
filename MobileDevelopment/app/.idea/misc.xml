@@ -4,25 +4,28 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_back.xml" value="0.1185" />
+        <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_bottom_decor.xml" value="0.22" />
         <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_capture.xml" value="0.1185" />
+        <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_cross.xml" value="0.154" />
+        <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_cross_x3.xml" value="0.1" />
+        <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_home.xml" value="0.154" />
+        <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_scan.xml" value="0.154" />
         <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/rounded_edt_text.xml" value="0.1765" />
+        <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/transparent_bg.xml" value="0.154" />
         <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/layout/activity_camera.xml" value="0.1" />
-        <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/layout/activity_login.xml" value="0.22" />
-        <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/layout/activity_login.xml" value="0.13076923076923078" />
+        <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/layout/activity_register.xml" value="0.22" />
         <entry key="..\:/Bangkit/Capstone/Android/Agrapana/MobileDevelopment/app/app/src/main/res/layout/activity_result.xml" value="0.3333333333333333" />
-        <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.144" />
         <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_capture.xml" value="0.144" />
         <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_cross.xml" value="0.144" />
         <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_home.xml" value="0.144" />
         <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_place_holder.xml" value="0.144" />
         <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_switch_camera.xml" value="0.144" />
         <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_three_line.xml" value="0.144" />
-        <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_triangle_line.xml" value="0.144" />
-        <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/drawable/ic_triangle_solid.xml" value="0.144" />
         <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/layout/activity_camera.xml" value="0.1403985507246377" />
         <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/layout/activity_login.xml" value="0.22" />
-        <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
         <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/layout/activity_register.xml" value="0.1585144927536232" />
         <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/layout/activity_result.xml" value="0.10960144927536232" />
         <entry key="..\:/Hansel/Bangkit/Capstone/Agrapana/MobileDevelopment/app/app/src/main/res/menu/bottom_nav_menu.xml" value="0.17864583333333334" />
