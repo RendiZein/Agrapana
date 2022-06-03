@@ -3,12 +3,15 @@ package com.capstone.agrapanaapp.view.camera
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -16,8 +19,10 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.capstone.agrapanaapp.R
 import com.capstone.agrapanaapp.databinding.ActivityCameraBinding
 import com.capstone.agrapanaapp.view.helper.createFile
+import com.capstone.agrapanaapp.view.helper.uriToFile
 import com.capstone.agrapanaapp.view.main.MainActivity
 import com.capstone.agrapanaapp.view.result.ResultActivity
 import java.io.File
@@ -28,12 +33,14 @@ class CameraActivity : AppCompatActivity() {
     private var imageCapture: ImageCapture? = null
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
     private lateinit var binding: ActivityCameraBinding
+    private var uri: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
                 this,
@@ -43,6 +50,9 @@ class CameraActivity : AppCompatActivity() {
         }
 
         binding.captureImage.setOnClickListener { takePhoto() }
+        binding.fabGallery.setOnClickListener {
+            startGallery()
+        }
         binding.switchCamera.setOnClickListener {
             cameraSelector = if (cameraSelector.equals(CameraSelector.DEFAULT_BACK_CAMERA)) CameraSelector.DEFAULT_FRONT_CAMERA
             else CameraSelector.DEFAULT_BACK_CAMERA
@@ -81,6 +91,7 @@ class CameraActivity : AppCompatActivity() {
                     val imgPath = output.savedUri?.path
                     if (imgPath != null){
                        val i = Intent(this@CameraActivity, ResultActivity::class.java)
+                        Log.d("TAG", "onImageSaved: $imgPath")
                        i.putExtra(ResultActivity.EXTRA_PATH_IMAGE, imgPath)
                        i.putExtra(ResultActivity.EXTRA_URI, output.savedUri.toString())
                        startActivity(i)
@@ -173,6 +184,35 @@ class CameraActivity : AppCompatActivity() {
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private val launcherIntentGallery = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val selectedImg: Uri = result.data?.data as Uri
+            val myFile = uriToFile(selectedImg, this@CameraActivity)
+            uri = myFile.path
+            Log.d("TAG", "ok: $uri")
+            if (uri != null){
+                val i = Intent(this@CameraActivity, ResultActivity::class.java)
+                i.putExtra(ResultActivity.EXTRA_PATH_IMAGE, uri)
+                startActivity(i)
+            } else{
+                finish()
+            }
+
+//            val myFile = uriToFile(selectedImg, this@CameraActivity)
+
+        }
+    }
+
+    private fun startGallery() {
+        val intent = Intent()
+        intent.action = Intent.ACTION_GET_CONTENT
+        intent.type = "image/*"
+        val chooser = Intent.createChooser(intent, "Please choose an image")
+        launcherIntentGallery.launch(chooser)
     }
 
 }

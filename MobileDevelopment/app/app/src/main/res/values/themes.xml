@@ -18,4 +18,11 @@
         <item name="fontFamily">@font/nunito_medium</item>
 <!--        <item name="android:windowBackground">@color/white</item>-->
     </style>
+
+    <style name="fab_gallery">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20%</item>
+        <item name="strokeColor">@color/white</item>
+        <item name="strokeWidth">20dp</item>
+    </style>
 </resources>

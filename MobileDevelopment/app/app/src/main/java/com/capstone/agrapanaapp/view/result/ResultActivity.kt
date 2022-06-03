@@ -99,7 +99,7 @@ class ResultActivity : AppCompatActivity() {
             val description = "HAAAAAAAA".toRequestBody("text/plain".toMediaType())
 
                 resultViewModel.getUser().observe(this) { user ->
-                val service = ApiConfig.getApiService().uploadImage(imageMultipart,description,"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLWp6X0RNYjliUjZocHVJS00iLCJpYXQiOjE2NTM5NTczODN9.YqtUhxz2XTG4TgsCFvIF3T8cix4oHWVj9J53l-YOjIA")
+                val service = ApiConfig.getApiService().uploadImage(imageMultipart,description,"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLVdtdGxBOUJUaGtLV25OMVQiLCJpYXQiOjE2NTQyMjI5Nzh9.NoMgRFGMMbVXyUnMyYZVmpc_INcl1b0ZXTSzauUzGMk")
                 service.enqueue(object : Callback<FileUploadResponse> {
                     override fun onResponse(
                         call: Call<FileUploadResponse>,
@@ -124,8 +124,10 @@ class ResultActivity : AppCompatActivity() {
 
                     override fun onFailure(call: Call<FileUploadResponse>, t: Throwable) {
                         binding.progressBar.visibility =  View.GONE
+
                         Toast.makeText(this@ResultActivity, getString(R.string.retrofit_failure), Toast.LENGTH_SHORT)
                             .show()
+                        Log.e("TAG", "onFailure: ${t.message}")
                     }
                 })
             }
