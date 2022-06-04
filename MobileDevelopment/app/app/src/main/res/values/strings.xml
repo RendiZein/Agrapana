@@ -6,7 +6,7 @@
     <string name="retrofit_failure">Retrofit failure</string>
     <string name="please_insert_image">No image</string>
     <string name="result">Result</string>
-    <string name="ripeness_level_withDoubleDots">Ripeness level:</string>
+    <string name="ripeness_level_withDoubleDots">Ripeness level</string>
     <string name="input_email">Please input valid email adress</string>
     <string name="input_password">please input password</string>
     <string name="password_number_alert">password must be more than 6 characters</string>
