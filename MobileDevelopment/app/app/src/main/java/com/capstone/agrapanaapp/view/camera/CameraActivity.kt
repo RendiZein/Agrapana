@@ -196,7 +196,7 @@ class CameraActivity : AppCompatActivity() {
             Log.d("TAG", "ok: $uri")
             if (uri != null){
                 val i = Intent(this@CameraActivity, ResultActivity::class.java)
-                i.putExtra(ResultActivity.EXTRA_PATH_IMAGE, uri)
+                i.putExtra(ResultActivity.EXTRA_PATH_IMAGE_GALLERY, uri)
                 startActivity(i)
             } else{
                 finish()

@@ -51,10 +51,10 @@ class ResultActivity : AppCompatActivity() {
     companion object {
         const val CAMERA_RESULT = 200
         const val EXTRA_PATH_IMAGE = "extra_path_IMAGE"
+        const val EXTRA_PATH_IMAGE_GALLERY = "extra_path_IMAGE_GALLERY"
         const val EXTRA_URI = "extra_uri"
     }
 
-    private lateinit var currentPhotoPath: String
     private var getFile: File? = null
     private lateinit var binding: ActivityResultBinding
     private lateinit var resultViewModel: ResultViewModel
@@ -67,12 +67,23 @@ class ResultActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
-        currentPhotoPath = intent.getStringExtra(EXTRA_PATH_IMAGE).toString()
+        val currentPhotoPath = intent.getStringExtra(EXTRA_PATH_IMAGE)
+        val galleryPath = intent.getStringExtra(EXTRA_PATH_IMAGE_GALLERY)
 
-        val result = rotateBitmap(
-            BitmapFactory.decodeFile(currentPhotoPath),
-            true
-        )
+
+        val result : Bitmap =
+            if (currentPhotoPath==null) {rotateBitmap(
+                BitmapFactory.decodeFile(galleryPath.toString()),
+                false)}
+        else {rotateBitmap(
+            BitmapFactory.decodeFile(currentPhotoPath.toString()),
+            true)}
+
+//        val result = rotateBitmap(
+//            BitmapFactory.decodeFile(currentPhotoPath),
+//            true)
+
+
 //        val bytes = ByteArrayOutputStream()
 //        result.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
         val path = MediaStore.Images.Media.insertImage(this@ResultActivity.contentResolver, result,"Title",null).toString()
