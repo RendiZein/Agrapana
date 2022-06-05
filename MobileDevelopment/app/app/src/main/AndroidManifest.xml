@@ -29,6 +29,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgrapanaApp">
         <activity
+            android:name=".view.main.DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.authentication.register.RegisterActivity"
             android:exported="false" />
         <activity
@@ -48,18 +51,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-<!--        <provider-->
-<!--            android:name="androidx.core.content.FileProvider"-->
-<!--            android:authorities="com.capstone.agrapanaapp.view.main"-->
-<!--            android:exported="false"-->
-<!--            android:grantUriPermissions="true">-->
-<!--            <meta-data-->
-<!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
-<!--                android:resource="@xml/file_paths" />-->
-<!--        </provider>-->
-
+        </activity> <!-- <provider -->
+        <!-- android:name="androidx.core.content.FileProvider" -->
+        <!-- android:authorities="com.capstone.agrapanaapp.view.main" -->
+        <!-- android:exported="false" -->
+        <!-- android:grantUriPermissions="true"> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.support.FILE_PROVIDER_PATHS" -->
+        <!-- android:resource="@xml/file_paths" /> -->
+        <!-- </provider> -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.capstone.agrapanaapp.view.result"
