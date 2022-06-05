@@ -108,6 +108,12 @@ class ResultActivity : AppCompatActivity() {
 
         setupViewModel()
         binding.uploadButton.setOnClickListener{uploadImage()}
+
+        binding.progressViewRipeness.apply {
+            progressMax = 100f
+            roundBorder = true
+            setProgressWithAnimation(70f, 2000)
+        }
     }
 
     private fun uploadImage() {
