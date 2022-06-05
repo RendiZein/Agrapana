@@ -62,5 +62,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
     //determinate progress view
     implementation 'com.mikhaellopez:circularprogressbar:3.1.0'
+    //bitmap
+    implementation 'com.blankj:utilcodex:1.30.6'
 
 }
