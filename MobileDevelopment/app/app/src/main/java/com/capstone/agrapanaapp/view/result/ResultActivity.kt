@@ -1,39 +1,26 @@
 package com.capstone.agrapanaapp.view.result
 
-import android.Manifest
 import android.content.Context
-import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
+import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
+import com.blankj.utilcode.util.ImageUtils
 import com.capstone.agrapanaapp.R
 import com.capstone.agrapanaapp.data.remote.retrofit.ApiConfig
-import com.capstone.agrapanaapp.databinding.ActivityMainBinding
 import com.capstone.agrapanaapp.databinding.ActivityResultBinding
 import com.capstone.agrapanaapp.model.FileUploadResponse
 import com.capstone.agrapanaapp.model.UserPreference
-import com.capstone.agrapanaapp.view.camera.CameraActivity.Companion.CAMERA_X_RESULT
-import com.capstone.agrapanaapp.view.helper.ViewModelFactory
-import com.capstone.agrapanaapp.view.helper.reduceFileImage
-import com.capstone.agrapanaapp.view.helper.rotateBitmap
-import com.capstone.agrapanaapp.view.helper.uriToFile
-import com.capstone.agrapanaapp.view.main.MainActivity
-import com.google.android.gms.auth.api.identity.SaveAccountLinkingTokenRequest.EXTRA_TOKEN
+import com.capstone.agrapanaapp.view.helper.*
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -42,8 +29,11 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+
+
 //import java.util.prefs.Preferences
 
 class ResultActivity : AppCompatActivity() {
@@ -67,30 +57,53 @@ class ResultActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
-        val currentPhotoPath = intent.getStringExtra(EXTRA_PATH_IMAGE)
-        val galleryPath = intent.getStringExtra(EXTRA_PATH_IMAGE_GALLERY)
+        val currentPhotoPath = intent.getStringExtra("extra_path_IMAGE")
+        val galleryPath = intent.getStringExtra("extra_path_IMAGE_GALLERY")
 
 
         val result : Bitmap =
             if (currentPhotoPath==null) {rotateBitmap(
                 BitmapFactory.decodeFile(galleryPath.toString()),
                 false)}
+
         else {rotateBitmap(
             BitmapFactory.decodeFile(currentPhotoPath.toString()),
             true)}
+
+        Log.d("TAG", "onCreate: $currentPhotoPath \n $galleryPath")
 
 //        val result = rotateBitmap(
 //            BitmapFactory.decodeFile(currentPhotoPath),
 //            true)
 
-
+//        val path2: String = this.filesDir.absolutePath
+//        Log.d("TAG", "onCreate3: $path2")
+//        ImageUtils.save(result, path2, Bitmap.CompressFormat.PNG);
 //        val bytes = ByteArrayOutputStream()
 //        result.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
-        val path = MediaStore.Images.Media.insertImage(this@ResultActivity.contentResolver, result,"Title",null).toString()
-        val uri = Uri.parse(path)
+
+//        val uri2 = UriUtils.file2Uri(FileUtils.getFileByPath(path2))
+
+//        val path6 = MediaStore.Images.Media.insertImage(this@ResultActivity.contentResolver, result,"Title",null)
+//        Log.d("TAG", "onCreate4: $path6")
+//        val uri = Uri.parse(path6)
+
 //        val uriString = intent.getStringExtra("extra_uri").toString()
 //        val uri = Uri.parse(uriString)
-        getFile = uriToFile(uri,this)
+
+        /* usaha 1*/
+        val photoFile = createFile(application)
+        try {
+            FileOutputStream(photoFile).use { out ->
+                result.compress(Bitmap.CompressFormat.PNG, 100, out) // bmp is your Bitmap instance
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        /* end of usaha 1*/
+        getFile = photoFile
+
+//        getFile = uriToFile(uri,this)
         binding.resultImageView.setImageBitmap(result)
 
         setupViewModel()
