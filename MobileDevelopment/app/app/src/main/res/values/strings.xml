@@ -12,4 +12,30 @@
     <string name="password_number_alert">password must be more than 6 characters</string>
     <string name="email_pattern_alert">Email must be valid email address</string>
     <string name="input_name">Please input your name</string>
+    <string name="fruit_name">Fruit name</string>
+    <string name="fruit_description">Fruit_description</string>
+
+    <string-array name="data_name">
+        <item>Pisang</item>
+        <item>Pepaya</item>
+        <item>Semangka</item>
+        <item>Mangga</item>
+        <item>Kelapa sawit</item>
+    </string-array>
+
+    <string-array name="data_description">
+        <item>Pisang itu pisang</item>
+        <item>Coming soon</item>
+        <item>Coming soon</item>
+        <item>Coming soon</item>
+        <item>Coming soon</item>
+    </string-array>
+
+    <integer-array name="data_photo">
+        <item>@drawable/a_banana</item>
+        <item>@drawable/a_banana</item>
+        <item>@drawable/a_banana</item>
+        <item>@drawable/a_banana</item>
+        <item>@drawable/a_banana</item>
+    </integer-array>
 </resources>
