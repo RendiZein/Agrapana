@@ -91,7 +91,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="680dp"
+        android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appBarLayout">
 
@@ -104,7 +104,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="74dp"
                 android:text="Welcome"
                 android:textColor="#754C07"
                 android:textSize="24sp"
@@ -185,7 +185,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="100dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_check_fruit" />
 
@@ -198,6 +197,15 @@
                 android:text="login"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ruang_kosong"
+                android:layout_width="157dp"
+                android:layout_height="100dp"
+                app:layout_constraintEnd_toEndOf="@+id/rv_fruits"
+                app:layout_constraintStart_toStartOf="@+id/rv_fruits"
+                app:layout_constraintTop_toBottomOf="@+id/rv_fruits"
+                tools:srcCompat="@tools:sample/avatars" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
