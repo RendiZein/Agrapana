@@ -33,9 +33,9 @@
 
     <integer-array name="data_photo">
         <item>@drawable/a_banana</item>
-        <item>@drawable/a_banana</item>
-        <item>@drawable/a_banana</item>
-        <item>@drawable/a_banana</item>
+        <item>@drawable/a_papaya</item>
+        <item>@drawable/a_watermelon</item>
+        <item>@drawable/a_mangoe</item>
         <item>@drawable/a_banana</item>
     </integer-array>
 </resources>

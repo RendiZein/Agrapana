@@ -6,43 +6,51 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_marginLeft="8dp"
+    android:layout_marginLeft="4dp"
     android:layout_marginTop="4dp"
-    android:layout_marginRight="8dp"
+    android:layout_marginRight="4dp"
     android:layout_marginBottom="4dp"
-    card_view:cardCornerRadius="4dp">
+    card_view:cardCornerRadius="10dp"
+    android:elevation="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="203dp"
-        android:layout_height="198dp"
-        android:padding="8dp">
+        android:layout_width="177dp"
+        android:layout_height="200dp"
+        android:padding="4dp">
 
-        <ImageView
-            android:id="@+id/profileImageView"
-            android:layout_width="163dp"
-            android:layout_height="141dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="5dp"
+            android:elevation="10dp"
+            card_view:cardCornerRadius="8dp"
             card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintVertical_bias="0.033"
-            tools:src="@tools:sample/avatars" />
+            card_view:layout_constraintVertical_bias="0.13">
+
+            <ImageView
+                android:id="@+id/profileImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/a_banana" />
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/nameTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="152dp"
-            android:layout_marginEnd="8dp"
-            android:layout_toEndOf="@id/profileImageView"
-            android:textSize="16sp"
+            android:layout_width="146dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:textSize="14sp"
             android:textStyle="bold"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="0.0"
-            card_view:layout_constraintStart_toStartOf="@+id/profileImageView"
-            card_view:layout_constraintTop_toTopOf="@+id/profileImageView"
+            card_view:layout_constraintStart_toStartOf="@+id/cardView"
+            card_view:layout_constraintTop_toBottomOf="@+id/cardView"
             tools:text="@string/fruit_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

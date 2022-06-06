@@ -1,6 +1,7 @@
 package com.capstone.agrapanaapp.view.result
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -20,7 +21,9 @@ import com.capstone.agrapanaapp.data.remote.retrofit.ApiConfig
 import com.capstone.agrapanaapp.databinding.ActivityResultBinding
 import com.capstone.agrapanaapp.model.FileUploadResponse
 import com.capstone.agrapanaapp.model.UserPreference
+import com.capstone.agrapanaapp.view.camera.CameraActivity
 import com.capstone.agrapanaapp.view.helper.*
+import com.capstone.agrapanaapp.view.main.MainActivity
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -59,6 +62,10 @@ class ResultActivity : AppCompatActivity() {
 
         val currentPhotoPath = intent.getStringExtra("extra_path_IMAGE")
         val galleryPath = intent.getStringExtra("extra_path_IMAGE_GALLERY")
+
+        binding.ivBack.setOnClickListener {
+            startActivity(Intent(this@ResultActivity, MainActivity::class.java))
+        }
 
 
         val result : Bitmap =
