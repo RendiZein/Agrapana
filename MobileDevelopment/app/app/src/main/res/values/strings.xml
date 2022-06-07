@@ -7,13 +7,15 @@
     <string name="please_insert_image">No image</string>
     <string name="result">Result</string>
     <string name="ripeness_level_withDoubleDots">Ripeness level</string>
-    <string name="input_email">Please input valid email adress</string>
+    <string name="input_email">Please input valid email address</string>
     <string name="input_password">please input password</string>
     <string name="password_number_alert">password must be more than 6 characters</string>
     <string name="email_pattern_alert">Email must be valid email address</string>
     <string name="input_name">Please input your name</string>
     <string name="fruit_name">Fruit name</string>
     <string name="fruit_description">Fruit_description</string>
+    <string name="fail_unauthorized">invalid name/password</string>
+    <string name="fail_login">Gail login</string>
 
     <string-array name="data_name">
         <item>Pisang</item>

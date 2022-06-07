@@ -1,6 +1,7 @@
 package com.capstone.agrapanaapp.data.remote.retrofit
 
 import com.capstone.agrapanaapp.model.FileUploadResponse
+import com.capstone.agrapanaapp.model.ResponseLogin
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -16,12 +17,13 @@ interface ApiService {
 //        @Field("password") password: String
 //    ): Call<ResponseRegister>
 //
-//    @FormUrlEncoded
-//    @POST("login")
-//    fun login(
-//        @Field("email") email: String,
-//        @Field("password") password: String
-//    ): Call<ResponseLogin>
+
+
+    @POST("login")
+    fun login(
+        @Field("email") email: String,
+        @Field("password") password: String
+    ): Call<ResponseLogin>
 
     @Multipart
     @POST("stories")

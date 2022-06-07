@@ -25,6 +25,14 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         return dataStore.data.map { it[TOKEN_KEY] ?:"" }
     }
 
+//    suspend fun login(user: UserModel) {
+//        dataStore.edit { preferences ->
+//            preferences[USERNAME_KEY] = user.name
+//            preferences[TOKEN_KEY] = user.token
+//            preferences[STATE_KEY] = user.isLogin
+//        }
+//    }
+
     suspend fun login(user: UserModel) {
         dataStore.edit { preferences ->
             preferences[USERNAME_KEY] = user.name

@@ -72,45 +72,45 @@ class LoginActivity : AppCompatActivity() {
         binding.btnRegister.setOnClickListener{
             startActivity(Intent(this, RegisterActivity::class.java))
         }
-//        binding.btnLogin.setOnClickListener {
-//            val email = binding.edtEmail.text.toString()
-//            val password = binding.edtPass.text.toString()
-//            when {
-//                // ini kalo email/password kosong, nampilin eror
-//                email.isEmpty() -> {
-//                    binding.edtEmail.error = getString(R.string.input_email)
-//                }
-//                password.isEmpty() -> {
-//                    binding.edtPass.error = getString(R.string.input_password)
-//                }
-//                password.length < 6 -> {
-//                    binding.edtPass.error = getString(R.string.password_number_alert)
-//                }
-//                else -> {
-//                    loginViewModel.login(email, password)
-//                    loginViewModel.userdata.observe(this){user ->
-//                        saveUserdata(user.name,user.token)
-//                    }
-//                    loginViewModel.response.observe(this){ response ->
-//                        when {
-//                            response == YES ->{
-//
-//                                val intent = Intent(this@LoginActivity, MainActivity::class.java)
-//                                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-//                                startActivity(intent)
-//                                finish()
-//
-//                            }
-//
-//                            response == UNAUTHORIZED ->{
-//                                Toast.makeText(this, R.string.fail_unauthorized, Toast.LENGTH_SHORT).show()}
-//                            response == NO ->{
-//                                Toast.makeText(this, getString(R.string.fail_login), Toast.LENGTH_SHORT).show()}
-//                        }
-//                    }
-//                }
-//            }
-//        }
+        binding.btnLogin.setOnClickListener {
+            val email = binding.edtEmail.text.toString()
+            val password = binding.edtPass.text.toString()
+            when {
+                // ini kalo email/password kosong, nampilin eror
+                email.isEmpty() -> {
+                    binding.edtEmail.error = getString(R.string.input_email)
+                }
+                password.isEmpty() -> {
+                    binding.edtPass.error = getString(R.string.input_password)
+                }
+                password.length < 6 -> {
+                    binding.edtPass.error = getString(R.string.password_number_alert)
+                }
+                else -> {
+                    loginViewModel.login(email, password)
+                    loginViewModel.userdata.observe(this){user ->
+                        saveUserdata(user.message,user.token)
+                    }
+                    loginViewModel.response.observe(this){ response ->
+                        when {
+                            response == YES ->{
+
+                                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                                startActivity(intent)
+                                finish()
+
+                            }
+
+                            response == UNAUTHORIZED ->{
+                                Toast.makeText(this, R.string.fail_unauthorized, Toast.LENGTH_SHORT).show()}
+                            response == NO ->{
+                                Toast.makeText(this, getString(R.string.fail_login), Toast.LENGTH_SHORT).show()}
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private fun showLoading(it: Boolean) {
