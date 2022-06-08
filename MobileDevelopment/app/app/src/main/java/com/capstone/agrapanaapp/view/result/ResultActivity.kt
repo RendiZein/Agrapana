@@ -64,7 +64,7 @@ class ResultActivity : AppCompatActivity() {
         val galleryPath = intent.getStringExtra("extra_path_IMAGE_GALLERY")
 
         binding.ivBack.setOnClickListener {
-            startActivity(Intent(this@ResultActivity, MainActivity::class.java))
+            finish()
         }
 
 
@@ -109,6 +109,7 @@ class ResultActivity : AppCompatActivity() {
         }
         /* end of usaha 1*/
         getFile = photoFile
+        setupView()
 
 //        getFile = uriToFile(uri,this)
         binding.resultImageView.setImageBitmap(result)
@@ -116,11 +117,18 @@ class ResultActivity : AppCompatActivity() {
         setupViewModel()
         binding.uploadButton.setOnClickListener{uploadImage()}
 
+
+    }
+
+    private fun setupView() {
+
         binding.progressViewRipeness.apply {
             progressMax = 100f
             roundBorder = true
             setProgressWithAnimation(70f, 2000)
         }
+        binding.tvRipResult.text = "MATANG"
+        binding.tvMessage.text = "Wah pisangnya kurang matang "
     }
 
     private fun uploadImage() {
@@ -136,7 +144,7 @@ class ResultActivity : AppCompatActivity() {
             val description = "HAAAAAAAA".toRequestBody("text/plain".toMediaType())
 
                 resultViewModel.getUser().observe(this) { user ->
-                val service = ApiConfig.getApiService().uploadImage(imageMultipart,description,"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLVdtdGxBOUJUaGtLV25OMVQiLCJpYXQiOjE2NTQyMjI5Nzh9.NoMgRFGMMbVXyUnMyYZVmpc_INcl1b0ZXTSzauUzGMk")
+                val service = ApiConfig.getApiService().uploadImage(imageMultipart,description,"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLVdtdGxBOUJUaGtLV25OMVQiLCJpYXQiOjE2NTQ3MTQ1MDV9.vMrVrndJxsaG_TRafW2ey-iWPpAwB6IOZAMywdMRrQU")
                 service.enqueue(object : Callback<FileUploadResponse> {
                     override fun onResponse(
                         call: Call<FileUploadResponse>,
@@ -146,6 +154,7 @@ class ResultActivity : AppCompatActivity() {
                             binding.progressBar.visibility =  View.GONE
                             val responseBody = response.body()
                             if (responseBody != null && !responseBody.error) {
+                                Log.d("TAG", "onResponse: ${response.body()}")
                                 Toast.makeText(
                                     this@ResultActivity,
                                     responseBody.message,
@@ -154,6 +163,7 @@ class ResultActivity : AppCompatActivity() {
                             }
                         } else {
                             binding.progressBar.visibility =  View.GONE
+                            Log.d("TAG", "onResponse: ${response.body()?.error}")
                             Toast.makeText(this@ResultActivity, response.message(), Toast.LENGTH_SHORT)
                                 .show()
                         }

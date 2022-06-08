@@ -71,6 +71,7 @@ class LoginActivity : AppCompatActivity() {
     private fun setupAction() {
         binding.btnRegister.setOnClickListener{
             startActivity(Intent(this, RegisterActivity::class.java))
+            finish()
         }
         binding.btnLogin.setOnClickListener {
             val email = binding.edtEmail.text.toString()
@@ -88,20 +89,21 @@ class LoginActivity : AppCompatActivity() {
                 }
                 else -> {
                     loginViewModel.login(email, password)
-                    loginViewModel.userdata.observe(this){user ->
-                        saveUserdata(user.message,user.token)
+                    loginViewModel.userdata.observe(this){ user ->
+                        if(user.success == 1){
+                            saveUserdata(email, user.message, user.token)
+                        }
+                        Toast.makeText(this, "test ${user.message}", Toast.LENGTH_SHORT).show()
                     }
                     loginViewModel.response.observe(this){ response ->
                         when {
                             response == YES ->{
-
                                 val intent = Intent(this@LoginActivity, MainActivity::class.java)
                                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                                 startActivity(intent)
                                 finish()
 
                             }
-
                             response == UNAUTHORIZED ->{
                                 Toast.makeText(this, R.string.fail_unauthorized, Toast.LENGTH_SHORT).show()}
                             response == NO ->{
@@ -117,8 +119,9 @@ class LoginActivity : AppCompatActivity() {
         binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
     }
 
-    private fun saveUserdata(name: String, token : String) {
-        loginViewModel.loginData(UserModel(name,token,true))
+    private fun saveUserdata(email: String, name: String, token : String) {
+        loginViewModel.loginData(UserModel(email, name,token,true))
+
     }
 
 }

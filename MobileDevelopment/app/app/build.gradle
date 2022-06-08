@@ -65,5 +65,9 @@ dependencies {
     implementation 'com.mikhaellopez:circularprogressbar:3.1.0'
     //bitmap
     implementation 'com.blankj:utilcodex:1.30.6'
+    //raw json
+    implementation'com.squareup.retrofit2:converter-scalars:2.5.0'
+    //card view
+    implementation 'androidx.cardview:cardview:1.0.0'
 
 }

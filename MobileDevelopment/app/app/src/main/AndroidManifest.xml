@@ -29,6 +29,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgrapanaApp">
         <activity
+            android:name=".view.profile.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.main.DetailActivity"
             android:exported="false" />
         <activity
