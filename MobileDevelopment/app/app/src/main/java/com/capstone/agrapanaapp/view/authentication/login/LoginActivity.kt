@@ -9,6 +9,7 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
@@ -46,6 +47,21 @@ class LoginActivity : AppCompatActivity() {
         setupViewModel()
         setupAction()
         loginViewModel.isLoading.observe(this) { showLoading(it) }
+    }
+
+    override fun onBackPressed() {
+        AlertDialog.Builder(this).apply {
+            setMessage(R.string.exit_confirmation)
+            setPositiveButton(getString(R.string.alert_yes)) { _, _ ->
+                finishAffinity()
+            }
+            setNegativeButton(getString(R.string.alert_no)) { _, _ ->
+                closeOptionsMenu()
+            }
+
+            create()
+            show()
+        }
     }
 
     private fun setupView() {

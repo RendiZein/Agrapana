@@ -53,12 +53,6 @@ class CameraActivity : AppCompatActivity() {
         binding.fabGallery.setOnClickListener {
             startGallery()
         }
-        binding.switchCamera.setOnClickListener {
-            cameraSelector = if (cameraSelector.equals(CameraSelector.DEFAULT_BACK_CAMERA)) CameraSelector.DEFAULT_FRONT_CAMERA
-            else CameraSelector.DEFAULT_BACK_CAMERA
-            startCamera()
-
-        }
 
     }
 
@@ -181,6 +175,7 @@ class CameraActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED

@@ -100,6 +100,12 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
     private fun showLoading(it: Boolean) {
         binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
     }

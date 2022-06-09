@@ -16,6 +16,10 @@
     <string name="fruit_description">Fruit_description</string>
     <string name="fail_unauthorized">invalid name/password</string>
     <string name="fail_login">Gail login</string>
+    <string name="exit_confirmation">Do you want to exit?</string>
+    <string name="alert_yes">yes</string>
+    <string name="alert_no">no</string>
+    <string name="holdup" />
 
     <string-array name="data_name">
         <item>Pisang</item>
