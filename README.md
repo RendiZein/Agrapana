@@ -13,3 +13,81 @@ Agrapana App is an application that can classify fruit ripeness from photos. Thi
 - (CC) C2012F1318 - Shafira Amkha Zahra - Telkom University [@ShafiraAmkha](https://github.com/ShafiraAmkha)
 - (CC) C2012F1320 - Putri Nurani - Telkom University [@putrirani](https://github.com/putrirani)
 
+
+
+## Cloud Computing
+
+### Tech Stack
+
+**Server:** Node, Express
+
+**Database:** Google Cloud SQL
+
+**Compute:** App Engine
+
+
+### RESTFULL API 
+
+#### Register User
+
+```http
+  POST /api/users/
+```
+
+| Request | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `name` | `string` | **Required** |
+| `email` | `string` | **Required** |
+| `password` | `string` | **Required** |
+
+
+
+
+#### Login User for Authentication 
+
+```http
+  POST /api/users/login
+```
+
+| Request | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `email` | `string` | **Required** |
+| `password` | `string` | **Required** |
+
+User accounts are authenticated using JSON Web Token. If the user successfully login, the system will generate a token that can be accessed by Mobile Development team.
+
+#### Upload Image
+
+```http
+  POST /upload
+```
+
+| Key | Value    | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `image` | `.jpg` | **Required** |
+
+
+
+
+## Environment Variables 
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`APP_PORT`
+
+`DB_PORT`
+
+`DB_HOST`
+
+`DB_USER`
+
+`DB_PASS`
+
+`DB_SOCKET`
+
+`MYSQL_DB`
+
+
+
+
+
