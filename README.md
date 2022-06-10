@@ -13,7 +13,9 @@ Agrapana App is an application that can classify fruit ripeness from photos. Thi
 - (CC) C2012F1318 - Shafira Amkha Zahra - Telkom University [@ShafiraAmkha](https://github.com/ShafiraAmkha)
 - (CC) C2012F1320 - Putri Nurani - Telkom University [@putrirani](https://github.com/putrirani)
 
+## Machine Learning
 
+## Mobile Development
 
 ## Cloud Computing
 
