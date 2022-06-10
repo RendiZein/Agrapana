@@ -3,6 +3,7 @@
     <string name="image_preview">Image preview</string>
     <string name="no_permission_camera">Tidak medapatkan izin kamera</string>
     <string name="upload">Upload</string>
+    <string name="tv_desc_app">Agrapana App is an application that can classify fruit ripeness from photo. This helps you to identify whether the ripeness of the fruit matches your desired level of ripeness. You can just take a picture of your fruit or choose from your gallery and upload it then the apps will show the ripeness level (ripe, unripe, or overripe) and the percentage level of accuracy of classification results.</string>
     <string name="retrofit_failure">Retrofit gagal</string>
     <string name="please_insert_image">Tidak ada gambar</string>
     <string name="result">Hasil</string>

@@ -23,7 +23,7 @@ import androidx.core.view.get
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import androidx.fragment.app.commit
+//import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -134,11 +134,8 @@ class MainActivity : AppCompatActivity() {
                             name
                         }
                     }
-                    binding.tvName.text = username
+                    binding.tvName.text = "$username!"
                 }
-
-
-
             }
             else {
                 val intent = Intent(this@MainActivity, LoginActivity::class.java)
