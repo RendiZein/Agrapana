@@ -2,6 +2,7 @@ package com.capstone.agrapanaapp.data.remote.retrofit
 
 import com.capstone.agrapanaapp.model.ErrorResponse
 import com.capstone.agrapanaapp.model.FileUploadResponse
+import com.capstone.agrapanaapp.model.MachineLearningResponse
 import com.capstone.agrapanaapp.model.ResponseLogin
 import com.capstone.agrapanaapp.view.authentication.login.RequestBodyLogin
 import okhttp3.MultipartBody
@@ -36,12 +37,12 @@ interface ApiService {
     ): Call<ResponseLogin>
 
     @Multipart
-    @POST("stories")
+    @POST("upload")
     fun uploadImage(
-        @Part file: MultipartBody.Part,
-        @Part("description") description: RequestBody,
-        @Header("Authorization") token : String
-    ): Call<FileUploadResponse>
+        @Part file: MultipartBody.Part
+//        @Part("description") description: RequestBody,
+//        @Header("Authorization") token : String
+    ): Call<MachineLearningResponse>
 
 }
 

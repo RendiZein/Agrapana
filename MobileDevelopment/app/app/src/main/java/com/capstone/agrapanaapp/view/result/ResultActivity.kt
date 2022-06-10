@@ -1,12 +1,9 @@
 package com.capstone.agrapanaapp.view.result
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -15,26 +12,23 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
-import com.blankj.utilcode.util.ImageUtils
 import com.capstone.agrapanaapp.R
-import com.capstone.agrapanaapp.data.remote.retrofit.ApiConfig
+import com.capstone.agrapanaapp.data.remote.retrofit.ApiConfigUpImage
 import com.capstone.agrapanaapp.databinding.ActivityResultBinding
-import com.capstone.agrapanaapp.model.FileUploadResponse
+import com.capstone.agrapanaapp.model.MachineLearningResponse
 import com.capstone.agrapanaapp.model.UserPreference
-import com.capstone.agrapanaapp.view.camera.CameraActivity
 import com.capstone.agrapanaapp.view.helper.*
-import com.capstone.agrapanaapp.view.main.MainActivity
-import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
-import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 
 //import java.util.prefs.Preferences
@@ -109,7 +103,7 @@ class ResultActivity : AppCompatActivity() {
         }
         /* end of usaha 1*/
         getFile = photoFile
-        setupView()
+
 
 //        getFile = uriToFile(uri,this)
         binding.resultImageView.setImageBitmap(result)
@@ -120,56 +114,78 @@ class ResultActivity : AppCompatActivity() {
 
     }
 
-    private fun setupView() {
+    private fun setupView(confident: Double, jsonMemberClass: String, detail: String) {
 
+        val decimal = BigDecimal(confident).setScale(2, RoundingMode.HALF_EVEN)
+        val percentage = decimal.toFloat()*100
+        binding.progressViewRipeness.visibility = View.VISIBLE
         binding.progressViewRipeness.apply {
             progressMax = 100f
             roundBorder = true
-            setProgressWithAnimation(70f, 2000)
+            setProgressWithAnimation(percentage, 2000)
         }
-        binding.tvRipResult.text = "MATANG"
-        binding.tvMessage.text = "Wah pisangnya kurang matang "
+
+
+        if (jsonMemberClass == "ripe"){
+            binding.tvRipResult.visibility = View.VISIBLE
+            binding.tvRipResult.text = "Matang"
+        } else if (jsonMemberClass == "green"){
+            binding.tvRipResult.visibility = View.VISIBLE
+            binding.tvRipResult.text = "Belum matang"
+        } else {
+            binding.tvRipResult.visibility = View.VISIBLE
+            binding.tvRipResult.text = "Terlalu matang"
+        }
+
+        binding.tvNumPercent.visibility = View.VISIBLE
+        binding.tvNumPercent.text = "${percentage.toInt()}"
+
+        binding.tvMessage.visibility = View.VISIBLE
+        binding.tvMessage.text = detail
+
+        binding.tvPercent.visibility = View.VISIBLE
     }
 
     private fun uploadImage() {
         binding.progressBar.visibility =  View.VISIBLE
         if (getFile != null) {
+
             val file = reduceFileImage(getFile as File)
-            val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+            val requestImageFile = file.asRequestBody("image/jpg".toMediaTypeOrNull())
             val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
-                "photo",
+                "image",
                 file.name,
                 requestImageFile
             )
-            val description = "HAAAAAAAA".toRequestBody("text/plain".toMediaType())
 
                 resultViewModel.getUser().observe(this) { user ->
-                val service = ApiConfig.getApiService().uploadImage(imageMultipart,description,"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLVdtdGxBOUJUaGtLV25OMVQiLCJpYXQiOjE2NTQ3MTQ1MDV9.vMrVrndJxsaG_TRafW2ey-iWPpAwB6IOZAMywdMRrQU")
-                service.enqueue(object : Callback<FileUploadResponse> {
+                val service = ApiConfigUpImage.getApiServiceUpImage().uploadImage(imageMultipart)
+                service.enqueue(object : Callback<MachineLearningResponse> {
                     override fun onResponse(
-                        call: Call<FileUploadResponse>,
-                        response: Response<FileUploadResponse>
+                        call: Call<MachineLearningResponse>,
+                        response: Response<MachineLearningResponse>
                     ) {
                         if (response.isSuccessful) {
                             binding.progressBar.visibility =  View.GONE
                             val responseBody = response.body()
-                            if (responseBody != null && !responseBody.error) {
-                                Log.d("TAG", "onResponse: ${response.body()}")
+                            if (responseBody != null) {
+                                Log.d("TAG", "onResponse1: ${response.body()}")
                                 Toast.makeText(
                                     this@ResultActivity,
                                     responseBody.message,
                                     Toast.LENGTH_SHORT
                                 ).show()
+                                setupView(responseBody.prediction.confident, responseBody.prediction.jsonMemberClass, responseBody.prediction.detail)
                             }
                         } else {
                             binding.progressBar.visibility =  View.GONE
-                            Log.d("TAG", "onResponse: ${response.body()?.error}")
+                            Log.d("TAG", "onResponse2: ${response.body()}")
                             Toast.makeText(this@ResultActivity, response.message(), Toast.LENGTH_SHORT)
                                 .show()
                         }
                     }
 
-                    override fun onFailure(call: Call<FileUploadResponse>, t: Throwable) {
+                    override fun onFailure(call: Call<MachineLearningResponse>, t: Throwable) {
                         binding.progressBar.visibility =  View.GONE
 
                         Toast.makeText(this@ResultActivity, getString(R.string.retrofit_failure), Toast.LENGTH_SHORT)

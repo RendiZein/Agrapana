@@ -27,7 +27,7 @@ class FruitAdapter(private val listHero: ArrayList<Fruit>) : RecyclerView.Adapte
     override fun getItemCount(): Int = listHero.size
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private var imgPhoto: ImageView = itemView.findViewById(R.id.profileImageView)
+        private var imgPhoto: ImageView = itemView.findViewById(R.id.cv_avatar_fruit)
         private var tvName: TextView = itemView.findViewById(R.id.nameTextView)
 
         fun bind(fruit: Fruit) {
