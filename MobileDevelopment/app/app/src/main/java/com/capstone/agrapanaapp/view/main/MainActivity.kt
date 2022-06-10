@@ -152,11 +152,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showRecyclerList() {
-//        if (applicationContext.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-//            rvHeroes.layoutManager = GridLayoutManager(this, 2)
-//        } else {
-//            rvHeroes.layoutManager = LinearLayoutManager(this)
-//        }
         val ko = LinearLayoutManager(this)
         ko.orientation = RecyclerView.HORIZONTAL
 
