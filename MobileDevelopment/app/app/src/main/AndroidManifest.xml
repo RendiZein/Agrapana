@@ -37,6 +37,7 @@
             android:exported="false" />
         <activity
             android:name=".view.main.DetailActivity"
+            android:parentActivityName=".view.main.MainActivity"
             android:exported="false" />
         <activity
             android:name=".view.authentication.register.RegisterActivity"
