@@ -91,7 +91,7 @@ To run this project, you will need to add the following environment variables to
 
 
 ## Architecture
-![Architecture](https://user-images.githubusercontent.com/99302582/173038374-2d83bede-006b-4e7d-8806-704959e8ef2f.png/468x300?text)
 
+![Architecture](https://user-images.githubusercontent.com/99302582/173039761-4bbcbc90-4414-413e-ae87-554cff504122.png)
 
 
