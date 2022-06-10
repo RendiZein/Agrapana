@@ -1,24 +1,24 @@
 <resources>
     <string name="app_name">Agrapana App</string>
     <string name="image_preview">Image preview</string>
-    <string name="no_permission_camera">no camera permission</string>
+    <string name="no_permission_camera">Tidak medapatkan izin kamera</string>
     <string name="upload">Upload</string>
-    <string name="retrofit_failure">Retrofit failure</string>
-    <string name="please_insert_image">No image</string>
-    <string name="result">Result</string>
-    <string name="ripeness_level_withDoubleDots">Ripeness level</string>
-    <string name="input_email">Please input valid email address</string>
-    <string name="input_password">please input password</string>
-    <string name="password_number_alert">password must be more than 6 characters</string>
-    <string name="email_pattern_alert">Email must be valid email address</string>
-    <string name="input_name">Please input your name</string>
-    <string name="fruit_name">Fruit name</string>
-    <string name="fruit_description">Fruit_description</string>
-    <string name="fail_unauthorized">invalid name/password</string>
-    <string name="fail_login">Gail login</string>
-    <string name="exit_confirmation">Do you want to exit?</string>
-    <string name="alert_yes">yes</string>
-    <string name="alert_no">no</string>
+    <string name="retrofit_failure">Retrofit gagal</string>
+    <string name="please_insert_image">Tidak ada gambar</string>
+    <string name="result">Hasil</string>
+    <string name="ripeness_level_withDoubleDots">Tingkat kematangan</string>
+    <string name="input_email">Mohon isi alamat email yang valid</string>
+    <string name="input_password">Mohon isi password</string>
+    <string name="password_number_alert">Password harus diatas 6 huruf</string>
+    <string name="email_pattern_alert">Email harus valid</string>
+    <string name="input_name">Isi nama anda</string>
+    <string name="fruit_name">Nama buah</string>
+    <string name="fruit_description">Deskripsi buah</string>
+    <string name="fail_unauthorized">Email/password salah</string>
+    <string name="fail_login">Login gagal</string>
+    <string name="exit_confirmation">Keluar dari aplikasi?</string>
+    <string name="alert_yes">Ya</string>
+    <string name="alert_no">Tidak</string>
     <string name="holdup" />
 
     <string-array name="data_name">
@@ -44,4 +44,6 @@
         <item>@drawable/a_mangoe</item>
         <item>@drawable/a_banana</item>
     </integer-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

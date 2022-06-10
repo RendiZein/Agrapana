@@ -108,24 +108,32 @@ class LoginActivity : AppCompatActivity() {
                     loginViewModel.userdata.observe(this){ user ->
                         if(user.success == 1){
                             saveUserdata(email, user.message, user.token)
+                            Toast.makeText(this, user.message, Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                            startActivity(intent)
+                            finish()
+                        } else {
+                            binding
+                            Toast.makeText(this, R.string.fail_unauthorized , Toast.LENGTH_SHORT).show()
                         }
-                        Toast.makeText(this, "test ${user.message}", Toast.LENGTH_SHORT).show()
-                    }
-                    loginViewModel.response.observe(this){ response ->
-                        when {
-                            response == YES ->{
-                                val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                                startActivity(intent)
-                                finish()
 
-                            }
-                            response == UNAUTHORIZED ->{
-                                Toast.makeText(this, R.string.fail_unauthorized, Toast.LENGTH_SHORT).show()}
-                            response == NO ->{
-                                Toast.makeText(this, getString(R.string.fail_login), Toast.LENGTH_SHORT).show()}
-                        }
                     }
+//                    loginViewModel.response.observe(this){ response ->
+//                        when {
+//                            response == YES ->{
+//                                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+//                                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+//                                startActivity(intent)
+//                                finish()
+//
+//                            }
+//                            response == UNAUTHORIZED ->{
+//                                Toast.makeText(this, R.string.fail_unauthorized, Toast.LENGTH_SHORT).show()}
+//                            response == NO ->{
+//                                Toast.makeText(this, getString(R.string.fail_login), Toast.LENGTH_SHORT).show()}
+//                        }
+//                    }
                 }
             }
         }

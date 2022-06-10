@@ -11,15 +11,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CancellationSignal
 import android.provider.MediaStore
+import android.provider.Settings
 import android.util.Log
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.core.view.get
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -57,12 +61,49 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.background = null
         binding.bottomNavigationView.menu.getItem(1).isEnabled = false
+        binding.bottomNavigationView.menu.get(2).setOnMenuItemClickListener {
+            val mFragmentManager = supportFragmentManager
+            val mHistoryFragment = HistoryFragment()
+            val fragment = mFragmentManager.findFragmentByTag(HistoryFragment::class.java.simpleName)
+
+            if (fragment !is HistoryFragment) {
+                Log.d("MyFlexibleFragment", "Fragment Name :" + HistoryFragment::class.java.simpleName)
+                mFragmentManager
+                    .beginTransaction()
+                    .add(R.id.frame_container, mHistoryFragment, HistoryFragment::class.java.simpleName)
+                    .commit()
+            }
+            true
+        }
         binding.rvFruits.setHasFixedSize(true)
         setUpAction()
         list.addAll(listFruit)
         showRecyclerList()
 
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.miSettings -> {
+                Toast.makeText(this, "AAAA", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.miHome -> {
+//                val mFragmentManager = supportFragmentManager
+//                val mHistoryFragment = HistoryFragment()
+//                val fragment = mFragmentManager.findFragmentByTag(HistoryFragment::class.java.simpleName)
+//
+//                if (fragment !is HistoryFragment) {
+//                    Log.d("MyFlexibleFragment","Fragment Name:" + HistoryFragment::class.java.simpleName)
+//                    mFragmentManager.commit {
+//                        add(R.id.fragmentContainerView, mHistoryFragment, HistoryFragment::class.java.simpleName)
+//                    }
+//                }
+
+                true
+            }
+            else -> true
+        }
     }
 
     private fun setupViewModel() {

@@ -50,6 +50,7 @@ class LoginViewModel(private val pref: UserPreference) : ViewModel() {
         val client3 = ApiConfig.getApiService().signUp(myReq)
         client3.enqueue(object: Callback<ResponseLogin>{
             override fun onResponse(call: Call<ResponseLogin>, response: Response<ResponseLogin>) {
+                _isLoading.value = false
                 if (response.isSuccessful) {
                     Log.d(TAG, "onResponseErr2: ${response.body()}")
                     _userdata.value = response.body()
