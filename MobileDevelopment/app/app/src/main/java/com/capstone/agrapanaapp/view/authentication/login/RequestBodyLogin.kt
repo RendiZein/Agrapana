@@ -10,5 +10,4 @@ data class RequestBodyLogin(
 	@field:SerializedName("password")
 	val password: String
 
-
 )

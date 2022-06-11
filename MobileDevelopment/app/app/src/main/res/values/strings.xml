@@ -3,6 +3,7 @@
     <string name="image_preview">Image preview</string>
     <string name="no_permission_camera">Tidak medapatkan izin kamera</string>
     <string name="upload">Upload</string>
+    <string name="tv_desc_app">Agrapana App is an application that can classify fruit ripeness from photo. This helps you to identify whether the ripeness of the fruit matches your desired level of ripeness. You can just take a picture of your fruit or choose from your gallery and upload it then the apps will show the ripeness level (ripe, unripe, or overripe) and the percentage level of accuracy of classification results.</string>
     <string name="retrofit_failure">Retrofit gagal</string>
     <string name="please_insert_image">Tidak ada gambar</string>
     <string name="result">Hasil</string>
@@ -30,7 +31,19 @@
     </string-array>
 
     <string-array name="data_description">
-        <item>Pisang itu pisang</item>
+        <item>\t\t\tPisang adalah nama umum yang diberikan pada tumbuhan terna berukuran besar dengan daun memanjang dan besar yang tumbuh langsung dari bagian tangkai. Pisang dikenal sebagai buah yang mengandung nutrisi tinggi. Menariknya, buah ini memiliki manfaat yang berbeda berdasarkan tingkat kematangannya.
+
+\n1. Pisang berwarna hijau\n
+     \t\t\tPisang hijau matang kaya akan kandungan pati resisten, yakni jenis pati yang sulit dicerna oleh tubuh. Pisang ini bisa jadi pilihan diet yang baik untuk menurunkan berat badan atau bagi penderita diabetes. Rasa pisang hijau yang pahit juga menunjukkan kandungan gulanya yang rendah. Selain itu, pisang ini mengandung bakteri probiotik yang dapat membantu menjaga kesehatan pencernaan Anda. Akan tetapi, pisang hijau berpotensi menyebabkan perut kembung dan bergas sehingga intensitas buang angin Anda bisa bertambah.
+
+\n2. Pisang berwarna kuning\n
+     \t\t\tPisang yang berwarna kuning tentunya terlihat paling menarik dan menggugah selera. Pada tahap ini, pisang sudah lebih matang dan mudah dicerna. Pati resisten pada pisang berwarna kuning telah menjadi gula sederhana sehingga rasanya lebih manis. Warna pisang yang berubah menjadi kuning lebih kaya akan antioksidan jika dibandingkan dengan pisang hijau. Akan tetapi, pisang ini memiliki indeks glikemik yang lebih tinggi dibanding yang berwarna hijau sehingga konsumsinya perlu dibatasi pada penderita diabetes tipe 2.
+
+\n3. Pisang berwarna kuning dengan bintik cokelat\n
+     \t\t\tSaat warna pisang kuning telah dihiasi bintik cokelat, bukan berarti pisang busuk. Kondisi ini menunjukkan lebih banyak pati resisten yang telah diubah menjadi gula sederhana. Semakin banyak bintik yang terdapat di permukaan kulit pisang, semakin tinggi kandungan gula pada pisang. Banyaknya bintik cokelat yang ada di kulit pisang juga menunjukkan kandungan antioksidan yang semakin tinggi. Pisang matang berwarna kuning dan berbintik cokelat dianggap memiliki potensi untuk membantu melindungi tubuh dari penyakit kanker.
+
+\n4. Pisang berwarna cokelat\n
+     \t\t\tPisang yang berwarna cokelat biasanya sudah tidak diminati, bahkan lebih sering dibuang begitu saja karena dianggap pisang busuk. Pisang dengan warna ini juga terlihat tidak menarik, ditambah lagi dengan teksturnya yang lembek.Padahal, pisang yang berwarna kecoklatan ini menunjukkan kandungan antioksidan yang paling tinggi. Pada tingkat kematangan ini, semua pati pada pisang telah menjadi gula. Oleh karena itu, jenis pisang ini harus dihindari oleh penderita diabetes karena kandungan gulanya yang tinggi.</item>
         <item>Coming soon</item>
         <item>Coming soon</item>
         <item>Coming soon</item>
