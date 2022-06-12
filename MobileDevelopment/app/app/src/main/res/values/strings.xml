@@ -59,4 +59,8 @@
     </integer-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="success_register_alert">Pendaftaran berhasil</string>
+    <string name="alert_continue">Lanjut</string>
+    <string name="fail_taken">Username telah diambil</string>
+    <string name="fail_register">Registrasi gagal</string>
 </resources>

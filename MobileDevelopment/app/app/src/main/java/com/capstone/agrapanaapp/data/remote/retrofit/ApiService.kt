@@ -1,10 +1,8 @@
 package com.capstone.agrapanaapp.data.remote.retrofit
 
-import com.capstone.agrapanaapp.model.ErrorResponse
-import com.capstone.agrapanaapp.model.FileUploadResponse
-import com.capstone.agrapanaapp.model.MachineLearningResponse
-import com.capstone.agrapanaapp.model.ResponseLogin
+import com.capstone.agrapanaapp.model.*
 import com.capstone.agrapanaapp.view.authentication.login.RequestBodyLogin
+import com.capstone.agrapanaapp.view.authentication.register.RequestBodyRegister
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -35,6 +33,11 @@ interface ApiService {
     fun signUp(
     @Body description: RequestBodyLogin,
     ): Call<ResponseLogin>
+
+//    @POST
+//    fun register(
+//        @Body description: RequestBodyRegister,
+//    ): Call<ResponseRegister>
 
     @Multipart
     @POST("upload")
