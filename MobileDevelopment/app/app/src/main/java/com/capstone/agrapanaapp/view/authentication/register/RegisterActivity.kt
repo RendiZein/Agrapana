@@ -1,6 +1,8 @@
 package com.capstone.agrapanaapp.view.authentication.register
 
 import android.content.Intent
+import android.icu.text.Normalizer.NO
+import android.icu.text.Normalizer.YES
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -68,34 +70,33 @@ class RegisterActivity : AppCompatActivity() {
                 password.length < 6 -> {
                     binding.edtPass.error = getString(R.string.password_number_alert)
                 }
-//                else -> {
-//                    signupViewModel.register(
-//                        name,email, password
-//                    )
-//                    signupViewModel.success.observe(this){ success ->
-//                        when {
-//                            success == YES ->
-//                                AlertDialog.Builder(this).apply {
-//                                    setTitle(R.string.success_register_alert)
-//                                    setMessage(getString(R.string.success_register))
-//                                    setPositiveButton(getString(R.string.alert_continue)) { _, _ ->
-//                                        val intent = Intent(context, LoginActivity::class.java)
-//                                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-//                                        startActivity(intent)
-//                                        finish()
-//                                    }
-//
-//                                    create()
-//                                    show()
-//                                }
-//                            success == TAKEN ->{
-//                                Toast.makeText(this, R.string.fail_taken, Toast.LENGTH_SHORT).show()}
-//                            success == NO ->{
-//                                Toast.makeText(this, getString(R.string.fail_register), Toast.LENGTH_SHORT).show()}
-//                        }
-//                    }
-//
-//                }
+                else -> {
+                    registerViewModel.register(
+                        name, email, password
+                    )
+                    registerViewModel.success.observe(this){ success ->
+                        when {
+                            success == YES ->
+                                AlertDialog.Builder(this).apply {
+                                    setTitle(R.string.success_register_alert)
+                                    setPositiveButton(getString(R.string.alert_continue)) { _, _ ->
+                                        val intent = Intent(context, LoginActivity::class.java)
+                                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                                        startActivity(intent)
+                                        finish()
+                                    }
+
+                                    create()
+                                    show()
+                                }
+                            success == TAKEN ->{
+                                Toast.makeText(this, R.string.fail_taken, Toast.LENGTH_SHORT).show()}
+                            success == NO ->{
+                                Toast.makeText(this, getString(R.string.fail_register), Toast.LENGTH_SHORT).show()}
+                        }
+                    }
+
+                }
             }
         }
     }
@@ -108,5 +109,12 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun showLoading(it: Boolean) {
         binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
+    }
+    companion object{
+        private const val YES = "yes"
+        private const val NO = "no"
+        private const val TAKEN = "taken"
+
+        private const val UNAUTHORIZED = "unauthorized"
     }
 }
