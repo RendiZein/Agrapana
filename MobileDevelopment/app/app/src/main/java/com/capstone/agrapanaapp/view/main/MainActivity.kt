@@ -54,10 +54,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupViewModel()
         supportActionBar?.hide()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setupViewModel()
+
 
         binding.bottomNavigationView.background = null
         binding.bottomNavigationView.menu.getItem(1).isEnabled = false
@@ -79,29 +80,7 @@ class MainActivity : AppCompatActivity() {
         setUpAction()
         list.addAll(listFruit)
         showRecyclerList()
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.miSettings -> {
-                Toast.makeText(this, "AAAA", Toast.LENGTH_SHORT).show()
-                true
-            }
-            R.id.miHome -> {
-//                val mFragmentManager = supportFragmentManager
-//                val mHistoryFragment = HistoryFragment()
-//                val fragment = mFragmentManager.findFragmentByTag(HistoryFragment::class.java.simpleName)
-//
-//                if (fragment !is HistoryFragment) {
-//                    Log.d("MyFlexibleFragment","Fragment Name:" + HistoryFragment::class.java.simpleName)
-//                    mFragmentManager.commit {
-//                        add(R.id.fragmentContainerView, mHistoryFragment, HistoryFragment::class.java.simpleName)
-//                    }
-//                }
 
-                true
-            }
-            else -> true
-        }
     }
 
     private fun setupViewModel() {
@@ -109,14 +88,18 @@ class MainActivity : AppCompatActivity() {
             this,
             ViewModelFactory(UserPreference.getInstance(dataStore),this,dataStore)
         )[MainViewModel::class.java]
+
+        mainViewModel.getUser().observe(this) { user ->
+            if (!user.isLogin) {
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            }
+        }
     }
 
     private fun setUpAction() {
         mainViewModel.getUser().observe(this) {
-            if(it.isLogin){
-//                binding.testLogin.setOnClickListener {
-//                    startActivity(Intent(this@MainActivity, LoginActivity::class.java))
-//                }
+
                 binding.fab.setOnClickListener {
                     startActivity(Intent(this@MainActivity, CameraActivity::class.java))
                 }
@@ -134,15 +117,9 @@ class MainActivity : AppCompatActivity() {
                             name
                         }
                     }
-                    binding.tvName.text = "$username!"
+                    binding.tvName.text = username
                 }
-            }
-            else {
-                val intent = Intent(this@MainActivity, LoginActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
-                finish()
-            }
+
         }
     }
 
