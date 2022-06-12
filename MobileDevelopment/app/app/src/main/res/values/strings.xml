@@ -55,7 +55,7 @@
         <item>@drawable/a_papaya</item>
         <item>@drawable/a_watermelon</item>
         <item>@drawable/a_mangoe</item>
-        <item>@drawable/a_banana</item>
+        <item>@drawable/a_palm_oil</item>
     </integer-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

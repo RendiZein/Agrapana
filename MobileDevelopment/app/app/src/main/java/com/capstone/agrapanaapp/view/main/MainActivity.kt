@@ -59,21 +59,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         binding.bottomNavigationView.background = null
         binding.bottomNavigationView.menu.getItem(1).isEnabled = false
         binding.bottomNavigationView.menu.get(2).setOnMenuItemClickListener {
-            val mFragmentManager = supportFragmentManager
-            val mHistoryFragment = HistoryFragment()
-            val fragment = mFragmentManager.findFragmentByTag(HistoryFragment::class.java.simpleName)
-
-            if (fragment !is HistoryFragment) {
-                Log.d("MyFlexibleFragment", "Fragment Name :" + HistoryFragment::class.java.simpleName)
-                mFragmentManager
-                    .beginTransaction()
-                    .add(R.id.frame_container, mHistoryFragment, HistoryFragment::class.java.simpleName)
-                    .commit()
-            }
+            Toast.makeText(this, "Dalam pengembangan", Toast.LENGTH_SHORT).show()
             true
         }
         binding.rvFruits.setHasFixedSize(true)
