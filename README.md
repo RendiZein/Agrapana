@@ -14,6 +14,23 @@ Agrapana App is an application that can classify fruit ripeness from photos. Thi
 - (CC) C2012F1320 - Putri Nurani - Telkom University [@putrirani](https://github.com/putrirani)
 
 ## Machine Learning
+### Tools
+- Google Colab: to collaborate on developing the model
+- Tensorflow: to build and train the model
+
+### Workflow
+1. Data Gathering (Using this data https://github.com/giovannipcarvalho/banana-ripeness-classification/tree/master/data)
+2. Split Dataset (90% Training data and 10% Validation data)
+3. Data pre-processing<br/>
+  a. Standardize Images: resize and normalize<br/>
+  b. Data Augmentation: rotate, zoom, flip images to avoid overfitting
+4. Train Model (Transfer learning from MobileNetV2 and Hyperparameters Tuning using keras Tuner)
+5. Evaluation (Get and visualize the training and validation loss and accuracy)
+
+### Link Notebooks
+- Build early model: https://colab.research.google.com/drive/18bj24D2qq_esZ8t-naxvRAY-tsFJJS4U?usp=sharing
+- Hyperparameter tuning and get final model: https://colab.research.google.com/drive/1phli1Dwb6_Lywss0aOqFrld3DrwrDsHB
+- After get SavedModel then convert it to tensorflow js format so the model can be used in Node JS
 
 ## Mobile Development
 
