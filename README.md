@@ -33,6 +33,27 @@ Agrapana App is an application that can classify fruit ripeness from photos. Thi
 - After get SavedModel then convert it to tensorflow js format so the model can be used in Node JS
 
 ## Mobile Development
+### Components
+We use Android Studio IDE for the developing of Agrapana App with kotlin as the programing language. There are several libraries which is used. 
+* [Material Component](https://material.io/components/)
+* [RecycleView](https://developer.android.com/guide/topics/ui/layout/recyclerview)
+* [CameraX](https://developer.android.com/training/camerax)
+* [Retrofit](https://square.github.io/retrofit/)
+* [BottomNavigation](https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView)
+* [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
+* [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
+* [Circular Progress Bar](https://github.com/lopspower/CircularProgressBar)
+
+### Workflow
+#### 1. Clone The Project
+```
+git clone https://github.com/RendiZein/Agrapana.git
+```
+#### 2. Open Android Studio and klik "Open" 
+#### 3. Go directory Agrapana/MobileDevelopment
+#### 4. Choose "App"
+#### 3. Run or Build The App
+After you open the project, wait for the Gradle to finish building first. Then you can choose to build debug app by using `Run -> Run'app'`. Or you can build signed App by head to `Build -> Generate Signed Bundle/APK`.
 
 ## Cloud Computing
 
